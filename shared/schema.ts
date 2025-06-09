@@ -36,6 +36,7 @@ export interface CategoryScores {
   blockchain: number[];
   business: number[];
   risk: number[];
+  [key: string]: number[]; // Index signature for dynamic access
 }
 
 export interface WeightConfiguration {

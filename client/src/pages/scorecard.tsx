@@ -38,7 +38,7 @@ export default function Scorecard() {
       ...prev,
       [currentCompany]: {
         ...prev[currentCompany],
-        [category]: prev[currentCompany][category].map((score, i) => 
+        [category as keyof CategoryScores]: prev[currentCompany][category as keyof CategoryScores].map((score: number, i: number) => 
           i === index ? value : score
         )
       }
