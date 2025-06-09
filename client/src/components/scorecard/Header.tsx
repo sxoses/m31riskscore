@@ -31,7 +31,7 @@ export function Header({
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col">
             <label className="text-sm font-medium text-gray-700 mb-1">
-              Investment Approach
+              Fund Type
             </label>
             <Select value={currentConfig} onValueChange={onConfigChange}>
               <SelectTrigger className="min-w-48">

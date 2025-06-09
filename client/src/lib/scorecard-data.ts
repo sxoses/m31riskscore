@@ -2,15 +2,7 @@ import type { ScorecardData } from "@shared/schema";
 
 export const scorecardData: ScorecardData = {
   configurations: {
-    "Conservative VC": {
-      team: 30,
-      technology: 15,
-      market: 25,
-      blockchain: 10,
-      business: 15,
-      risk: 5
-    },
-    "Growth-Focused VC": {
+    "Liquid Fund": {
       team: 20,
       technology: 25,
       market: 30,
@@ -18,15 +10,15 @@ export const scorecardData: ScorecardData = {
       business: 15,
       risk: 5
     },
-    "Blockchain-First VC": {
-      team: 20,
-      technology: 30,
-      market: 15,
-      blockchain: 25,
-      business: 8,
-      risk: 2
+    "Illiquid Fund": {
+      team: 25,
+      technology: 20,
+      market: 25,
+      blockchain: 10,
+      business: 15,
+      risk: 5
     },
-    "Early-Stage VC": {
+    "Venture Fund": {
       team: 35,
       technology: 20,
       market: 20,
@@ -34,9 +26,9 @@ export const scorecardData: ScorecardData = {
       business: 15,
       risk: 5
     },
-    "Strategic Corporate VC": {
-      team: 25,
-      technology: 20,
+    "PLF": {
+      team: 30,
+      technology: 15,
       market: 25,
       blockchain: 10,
       business: 15,
