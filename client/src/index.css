@@ -1,0 +1,256 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary colors - teal/blue theme */
+  --background: hsl(60, 5%, 98%);
+  --foreground: hsl(192, 48%, 15%);
+  --muted: hsl(60, 5%, 96%);
+  --muted-foreground: hsl(25, 5%, 45%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(192, 48%, 15%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(192, 48%, 15%);
+  --border: hsl(20, 6%, 90%);
+  --input: hsl(20, 6%, 90%);
+  --primary: hsl(192, 62%, 34%);
+  --primary-foreground: hsl(60, 5%, 98%);
+  --secondary: hsl(60, 5%, 96%);
+  --secondary-foreground: hsl(192, 48%, 15%);
+  --accent: hsl(60, 5%, 96%);
+  --accent-foreground: hsl(192, 48%, 15%);
+  --destructive: hsl(0, 85%, 42%);
+  --destructive-foreground: hsl(60, 9%, 98%);
+  --ring: hsl(192, 62%, 34%);
+  --radius: 0.75rem;
+
+  /* Custom scorecard colors */
+  --primary-50: hsl(192, 68%, 95%);
+  --primary-100: hsl(192, 68%, 87%);
+  --primary-500: hsl(192, 62%, 34%);
+  --primary-600: hsl(192, 62%, 30%);
+  --primary-700: hsl(192, 62%, 26%);
+  
+  --secondary-50: hsl(39, 11%, 97%);
+  --secondary-100: hsl(36, 14%, 92%);
+  --secondary-500: hsl(36, 26%, 37%);
+  --secondary-600: hsl(36, 26%, 33%);
+  
+  --surface: hsl(0, 0%, 100%);
+  --background-main: hsl(60, 5%, 98%);
+
+  /* Status colors */
+  --success: hsl(192, 62%, 34%);
+  --success-bg: hsl(192, 68%, 95%);
+  --success-border: hsl(192, 62%, 70%);
+  
+  --warning: hsl(20, 56%, 42%);
+  --warning-bg: hsl(20, 56%, 95%);
+  --warning-border: hsl(20, 56%, 70%);
+  
+  --info: hsl(210, 7%, 42%);
+  --info-bg: hsl(210, 7%, 95%);
+  --info-border: hsl(210, 7%, 70%);
+  
+  --error: hsl(348, 79%, 42%);
+  --error-bg: hsl(348, 79%, 95%);
+  --error-border: hsl(348, 79%, 70%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 4%);
+  --foreground: hsl(0, 0%, 95%);
+  --muted: hsl(240, 4%, 16%);
+  --muted-foreground: hsl(240, 5%, 65%);
+  --popover: hsl(240, 10%, 4%);
+  --popover-foreground: hsl(0, 0%, 95%);
+  --card: hsl(240, 10%, 4%);
+  --card-foreground: hsl(0, 0%, 95%);
+  --border: hsl(240, 4%, 16%);
+  --input: hsl(240, 4%, 16%);
+  --primary: hsl(192, 68%, 50%);
+  --primary-foreground: hsl(192, 48%, 5%);
+  --secondary: hsl(240, 4%, 16%);
+  --secondary-foreground: hsl(0, 0%, 95%);
+  --accent: hsl(240, 4%, 16%);
+  --accent-foreground: hsl(0, 0%, 95%);
+  --destructive: hsl(0, 85%, 60%);
+  --destructive-foreground: hsl(0, 0%, 95%);
+  --ring: hsl(192, 68%, 50%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  /* Scorecard specific styles */
+  .scorecard-container {
+    @apply bg-background-main min-h-screen;
+  }
+
+  .category-card {
+    @apply bg-surface rounded-xl border border-gray-100 p-6 transition-all duration-200;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  .category-card:hover {
+    @apply transform -translate-y-1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .score-display {
+    @apply text-2xl font-semibold;
+    color: var(--primary-600);
+  }
+
+  .score-updated {
+    animation: scoreUpdate 0.3s ease-out;
+  }
+
+  @keyframes scoreUpdate {
+    0% { transform: scale(1); }
+    50% { 
+      transform: scale(1.05); 
+      color: var(--primary-500);
+    }
+    100% { transform: scale(1); }
+  }
+
+  .status-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-lg text-sm font-medium;
+  }
+
+  .status-success {
+    background-color: var(--success-bg);
+    color: var(--success);
+    border: 1px solid var(--success-border);
+  }
+
+  .status-warning {
+    background-color: var(--warning-bg);
+    color: var(--warning);
+    border: 1px solid var(--warning-border);
+  }
+
+  .status-info {
+    background-color: var(--info-bg);
+    color: var(--info);
+    border: 1px solid var(--info-border);
+  }
+
+  .status-error {
+    background-color: var(--error-bg);
+    color: var(--error);
+    border: 1px solid var(--error-border);
+  }
+
+  .weight-item {
+    @apply flex justify-between py-2 border-b border-gray-100 last:border-b-0;
+  }
+
+  .select-custom {
+    @apply appearance-none bg-white border border-gray-300 rounded-lg px-3 py-2 pr-10 focus:ring-2 focus:border-transparent;
+    focus:ring-color: var(--primary-500);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2313343b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+  }
+
+  .chart-container {
+    @apply relative h-48 rounded-xl flex items-center justify-center border;
+    background: linear-gradient(45deg, var(--primary-50), var(--primary-100));
+    border-color: var(--primary-500);
+    border-opacity: 0.1;
+  }
+
+  .comparison-table {
+    @apply w-full border-separate;
+    border-spacing: 0;
+  }
+
+  .comparison-table th {
+    @apply bg-gray-50 border-b-2 border-gray-200 px-4 py-3 text-left font-semibold text-gray-700 first:rounded-tl-lg last:rounded-tr-lg;
+  }
+
+  .comparison-table td {
+    @apply px-4 py-3 border-b border-gray-200;
+  }
+
+  .comparison-table tbody tr:hover {
+    @apply bg-gray-50;
+  }
+
+  .loading {
+    @apply opacity-70 pointer-events-none;
+  }
+
+  .decision-threshold {
+    @apply p-4 rounded-lg border;
+  }
+
+  .threshold-strong-buy {
+    @apply border-green-200 bg-green-50;
+  }
+
+  .threshold-consider {
+    @apply border-yellow-200 bg-yellow-50;
+  }
+
+  .threshold-hold {
+    @apply border-blue-200 bg-blue-50;
+  }
+
+  .threshold-pass {
+    @apply border-red-200 bg-red-50;
+  }
+
+  .threshold-title {
+    @apply font-semibold;
+  }
+
+  .threshold-strong-buy .threshold-title {
+    @apply text-green-800;
+  }
+
+  .threshold-consider .threshold-title {
+    @apply text-yellow-800;
+  }
+
+  .threshold-hold .threshold-title {
+    @apply text-blue-800;
+  }
+
+  .threshold-pass .threshold-title {
+    @apply text-red-800;
+  }
+
+  .threshold-description {
+    @apply text-sm mt-1;
+  }
+
+  .threshold-strong-buy .threshold-description {
+    @apply text-green-600;
+  }
+
+  .threshold-consider .threshold-description {
+    @apply text-yellow-600;
+  }
+
+  .threshold-hold .threshold-description {
+    @apply text-blue-600;
+  }
+
+  .threshold-pass .threshold-description {
+    @apply text-red-600;
+  }
+}
