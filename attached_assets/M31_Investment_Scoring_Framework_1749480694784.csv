@@ -1,0 +1,26 @@
+Category,Subcategory,Score,Category Score,Weighted Score
+Team (25%),Team Experience,4,=AVERAGE(C2:C5),=D2*0.25
+,Track Record,3,,
+,Technical Expertise,5,,
+,Team Cohesion,4,,
+Technology (20%),Innovation,4,=AVERAGE(C6:C9),=D6*0.2
+,Scalability,3,,
+,Security,4,,
+,Technical Feasibility,4,,
+Market Opportunity (20%),Market Size,5,=AVERAGE(C10:C13),=D10*0.2
+,Market Growth,4,,
+,Competitive Landscape,3,,
+,Customer Fit,4,,
+Blockchain Factors (15%),Decentralization Value,4,=AVERAGE(C14:C17),=D14*0.15
+,Tokenomics,3,,
+,Network Effects,4,,
+,Regulatory Compliance,3,,
+Business Model & Traction (15%),Revenue Model,3,=AVERAGE(C18:C21),=D18*0.15
+,Traction,2,,
+,Go-to-Market Strategy,3,,
+,Unit Economics,3,,
+Risk & Exit Potential (5%),Execution Risk,3,=AVERAGE(C22:C25),=D22*0.05
+,Regulatory Risk,2,,
+,Exit Potential,4,,
+,Macro Risk,3,,
+TOTAL,,,,=SUM(E2:E25)

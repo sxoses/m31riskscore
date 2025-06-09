@@ -1,0 +1,25 @@
+Category,Subcategory,Definition
+Team,Team Experience,"Relevant industry experience, particularly in blockchain, tech, or startups"
+Team,Track Record,"Past successes in founding startups, scaling businesses, or delivering projects"
+Team,Technical Expertise,"Depth of technical skills, especially in blockchain development, cryptography, or software engineering"
+Team,Team Cohesion,"Evidence of strong collaboration, complementary skills, and aligned vision"
+Technology,Innovation,Novelty of the technology compared to existing solutions
+Technology,Scalability,"Ability of the technology to handle growth in users, transactions, or data"
+Technology,Security,"Robustness of the codebase, smart contracts, and defenses against vulnerabilities"
+Technology,Technical Feasibility,Likelihood of delivering the proposed solution within a reasonable timeframe
+Market Opportunity,Market Size,Total addressable market (TAM) and serviceable addressable market (SAM)
+Market Opportunity,Market Growth,Projected growth rate of the market over the next 5-10 years
+Market Opportunity,Competitive Landscape,Differentiation from competitors and barriers to entry
+Market Opportunity,Customer Fit,Alignment of the product with customer needs and pain points
+Blockchain Factors,Decentralization Value,"Extent to which blockchain adds value (trustlessness, immutability) vs centralized alternatives"
+Blockchain Factors,Tokenomics,"Soundness of token design, incentives, and economic model (if applicable)"
+Blockchain Factors,Network Effects,Potential for the protocol or platform to benefit from growing user adoption
+Blockchain Factors,Regulatory Compliance,Alignment with current and anticipated blockchain regulations
+Business Model & Traction,Revenue Model,Clarity and sustainability of the monetization strategy
+Business Model & Traction,Traction,"Evidence of user adoption, partnerships, or early revenue"
+Business Model & Traction,Go-to-Market Strategy,Effectiveness of the plan to acquire and retain customers
+Business Model & Traction,Unit Economics,Profitability potential based on cost and revenue per user/transaction
+Risk & Exit Potential,Execution Risk,"Likelihood of operational, technical, or market-related challenges"
+Risk & Exit Potential,Regulatory Risk,Exposure to adverse regulatory changes or enforcement
+Risk & Exit Potential,Exit Potential,"Likelihood of acquisition, IPO, or other liquidity events"
+Risk & Exit Potential,Macro Risk,"Sensitivity to macroeconomic factors (crypto market volatility, economic downturns)"

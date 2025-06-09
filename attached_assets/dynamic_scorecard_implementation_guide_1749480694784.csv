@@ -1,0 +1,9 @@
+Feature,Google Sheets Implementation,Formula Example,Benefits
+Dynamic Weight Selection,Use dropdown with data validation for weight configurations,=B2 (dropdown cell with config names),Switch between investment approaches instantly
+Category Weight Formulas,"=INDEX(Config_Table, MATCH(Selected_Config, Config_Names, 0), 2)","=INDEX($H$2:$H$6,MATCH($B$2,$G$2:$G$6,0))",Automatic recalculation of all scores
+Weighted Score Calculation,=Category_Score * Dynamic_Weight_Cell,"=D2*INDEX(Weights,MATCH($B$2,Config_Names,0),COLUMN())",Consistent scoring across all categories
+Multiple Investment Tabs,One tab per investment with identical structure,"Investment_CompanyA, Investment_CompanyB tabs",Organized evaluation of multiple companies
+Template Duplication,Right-click tab → Duplicate for new investments,"Create template tab, duplicate for each new investment",Rapid setup for new investment evaluations
+Comparison Dashboard,Summary tab pulling data from all investment tabs,"=Investment_CompanyA!E2, =Investment_CompanyB!E2",Easy comparison across portfolio
+Configuration Switching,VLOOKUP/INDEX-MATCH to switch between weight sets,"=VLOOKUP($B$2,Config_Table,COLUMN(B:B),FALSE)",No manual weight updates needed
+Data Validation Setup,Data → Data Validation → List from range,Range: Config_Names (G2:G6),Prevents data entry errors

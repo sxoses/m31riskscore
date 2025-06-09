@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Investment Scorecard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Investment Scorecard System</h1>
+            <div class="header-controls">
+                <div class="form-group">
+                    <label for="configSelect" class="form-label">Scorecard Configuration:</label>
+                    <select id="configSelect" class="form-control">
+                        <option value="Conservative VC">Conservative VC</option>
+                        <option value="Growth-Focused VC">Growth-Focused VC</option>
+                        <option value="Blockchain-First VC">Blockchain-First VC</option>
+                        <option value="Early-Stage VC">Early-Stage VC</option>
+                        <option value="Strategic Corporate VC">Strategic Corporate VC</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="companySelect" class="form-label">Investment Opportunity:</label>
+                    <select id="companySelect" class="form-control">
+                        <option value="TechCorp">TechCorp</option>
+                        <option value="BlockchainCo">BlockchainCo</option>
+                        <option value="GrowthStart">GrowthStart</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Weight Distribution Visualization -->
+        <section class="weight-section">
+            <div class="card">
+                <div class="card__body">
+                    <h3>Weight Distribution</h3>
+                    <div class="weight-viz">
+                        <img src="https://pplx-res.cloudinary.com/image/upload/v1749476759/pplx_code_interpreter/d4aa375e_ngojew.jpg" alt="Investment Scorecard Weight Configurations" class="weight-chart">
+                    </div>
+                    <div class="current-weights" id="currentWeights">
+                        <!-- Dynamic weight display will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Scorecard -->
+        <main class="scorecard-container">
+            <div class="scorecard-grid">
+                <!-- Team Category -->
+                <div class="category-card" data-category="team">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Team</h3>
+                            <div class="category-weight" id="teamWeight">25%</div>
+                        </div>
+                        <div class="card__body">
+                            <div class="subcategory-grid">
+                                <div class="subcategory">
+                                    <label class="form-label">Team Experience</label>
+                                    <select class="form-control score-input" data-category="team" data-index="0">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Track Record</label>
+                                    <select class="form-control score-input" data-category="team" data-index="1">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Technical Expertise</label>
+                                    <select class="form-control score-input" data-category="team" data-index="2">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Team Cohesion</label>
+                                    <select class="form-control score-input" data-category="team" data-index="3">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="category-score">
+                                <span>Category Score: </span>
+                                <span class="score-value" id="teamScore">0.0</span>
+                                <span class="weighted-score">Weighted: <span id="teamWeightedScore">0.0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Category -->
+                <div class="category-card" data-category="technology">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Technology</h3>
+                            <div class="category-weight" id="technologyWeight">20%</div>
+                        </div>
+                        <div class="card__body">
+                            <div class="subcategory-grid">
+                                <div class="subcategory">
+                                    <label class="form-label">Innovation</label>
+                                    <select class="form-control score-input" data-category="technology" data-index="0">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Scalability</label>
+                                    <select class="form-control score-input" data-category="technology" data-index="1">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Security</label>
+                                    <select class="form-control score-input" data-category="technology" data-index="2">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Technical Feasibility</label>
+                                    <select class="form-control score-input" data-category="technology" data-index="3">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="category-score">
+                                <span>Category Score: </span>
+                                <span class="score-value" id="technologyScore">0.0</span>
+                                <span class="weighted-score">Weighted: <span id="technologyWeightedScore">0.0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Market Opportunity Category -->
+                <div class="category-card" data-category="market">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Market Opportunity</h3>
+                            <div class="category-weight" id="marketWeight">20%</div>
+                        </div>
+                        <div class="card__body">
+                            <div class="subcategory-grid">
+                                <div class="subcategory">
+                                    <label class="form-label">Market Size</label>
+                                    <select class="form-control score-input" data-category="market" data-index="0">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Market Growth</label>
+                                    <select class="form-control score-input" data-category="market" data-index="1">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Competitive Landscape</label>
+                                    <select class="form-control score-input" data-category="market" data-index="2">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Customer Fit</label>
+                                    <select class="form-control score-input" data-category="market" data-index="3">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="category-score">
+                                <span>Category Score: </span>
+                                <span class="score-value" id="marketScore">0.0</span>
+                                <span class="weighted-score">Weighted: <span id="marketWeightedScore">0.0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blockchain Factors Category -->
+                <div class="category-card" data-category="blockchain">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Blockchain Factors</h3>
+                            <div class="category-weight" id="blockchainWeight">15%</div>
+                        </div>
+                        <div class="card__body">
+                            <div class="subcategory-grid">
+                                <div class="subcategory">
+                                    <label class="form-label">Decentralization Value</label>
+                                    <select class="form-control score-input" data-category="blockchain" data-index="0">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Tokenomics</label>
+                                    <select class="form-control score-input" data-category="blockchain" data-index="1">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Network Effects</label>
+                                    <select class="form-control score-input" data-category="blockchain" data-index="2">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Regulatory Compliance</label>
+                                    <select class="form-control score-input" data-category="blockchain" data-index="3">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="category-score">
+                                <span>Category Score: </span>
+                                <span class="score-value" id="blockchainScore">0.0</span>
+                                <span class="weighted-score">Weighted: <span id="blockchainWeightedScore">0.0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Model Category -->
+                <div class="category-card" data-category="business">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Business Model</h3>
+                            <div class="category-weight" id="businessWeight">15%</div>
+                        </div>
+                        <div class="card__body">
+                            <div class="subcategory-grid">
+                                <div class="subcategory">
+                                    <label class="form-label">Revenue Model</label>
+                                    <select class="form-control score-input" data-category="business" data-index="0">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Customer Acquisition</label>
+                                    <select class="form-control score-input" data-category="business" data-index="1">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Partnerships</label>
+                                    <select class="form-control score-input" data-category="business" data-index="2">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Traction</label>
+                                    <select class="form-control score-input" data-category="business" data-index="3">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="category-score">
+                                <span>Category Score: </span>
+                                <span class="score-value" id="businessScore">0.0</span>
+                                <span class="weighted-score">Weighted: <span id="businessWeightedScore">0.0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk & Exit Category -->
+                <div class="category-card" data-category="risk">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Risk & Exit</h3>
+                            <div class="category-weight" id="riskWeight">5%</div>
+                        </div>
+                        <div class="card__body">
+                            <div class="subcategory-grid">
+                                <div class="subcategory">
+                                    <label class="form-label">Market Risk</label>
+                                    <select class="form-control score-input" data-category="risk" data-index="0">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Technology Risk</label>
+                                    <select class="form-control score-input" data-category="risk" data-index="1">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Exit Potential</label>
+                                    <select class="form-control score-input" data-category="risk" data-index="2">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                                <div class="subcategory">
+                                    <label class="form-label">Regulatory Risk</label>
+                                    <select class="form-control score-input" data-category="risk" data-index="3">
+                                        <option value="0">0 - Poor</option>
+                                        <option value="1">1 - Weak</option>
+                                        <option value="2">2 - Below Average</option>
+                                        <option value="3">3 - Average</option>
+                                        <option value="4">4 - Strong</option>
+                                        <option value="5">5 - Exceptional</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="category-score">
+                                <span>Category Score: </span>
+                                <span class="score-value" id="riskScore">0.0</span>
+                                <span class="weighted-score">Weighted: <span id="riskWeightedScore">0.0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Results Section -->
+        <section class="results-section">
+            <div class="card">
+                <div class="card__body">
+                    <div class="results-grid">
+                        <div class="total-score">
+                            <h3>Total Score</h3>
+                            <div class="score-display">
+                                <span class="score-number" id="totalScore">0.0</span>
+                                <span class="score-percent">/100</span>
+                            </div>
+                            <div class="recommendation" id="recommendation">
+                                <span class="status status--info">Calculate Score</span>
+                            </div>
+                        </div>
+                        <div class="comparison-table">
+                            <h3>Investment Comparison</h3>
+                            <table class="comparison">
+                                <thead>
+                                    <tr>
+                                        <th>Company</th>
+                                        <th>Total Score</th>
+                                        <th>Recommendation</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="comparisonTableBody">
+                                    <!-- Dynamic comparison data will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
