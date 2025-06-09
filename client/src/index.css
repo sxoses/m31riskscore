@@ -94,17 +94,15 @@
 @layer components {
   /* Scorecard specific styles */
   .scorecard-container {
-    @apply bg-background-main min-h-screen;
+    @apply bg-background min-h-screen;
   }
 
   .category-card {
-    @apply bg-surface rounded-xl border border-gray-100 p-6 transition-all duration-200;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    @apply bg-card rounded-xl border border-gray-100 p-6 transition-all duration-200 shadow-sm;
   }
 
   .category-card:hover {
-    @apply transform -translate-y-1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    @apply transform -translate-y-1 shadow-md;
   }
 
   .score-display {
@@ -155,15 +153,6 @@
 
   .weight-item {
     @apply flex justify-between py-2 border-b border-gray-100 last:border-b-0;
-  }
-
-  .select-custom {
-    @apply appearance-none bg-white border border-gray-300 rounded-lg px-3 py-2 pr-10 focus:ring-2 focus:border-transparent;
-    focus:ring-color: var(--primary-500);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2313343b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 1rem;
   }
 
   .chart-container {

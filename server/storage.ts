@@ -113,7 +113,7 @@ export class MemStorage implements IStorage {
 
     sampleConfigurations.forEach(config => {
       const id = this.currentConfigurationId++;
-      this.configurations.set(id, { ...config, id });
+      this.configurations.set(id, { ...config, id, description: config.description || null });
     });
   }
 
@@ -159,7 +159,7 @@ export class MemStorage implements IStorage {
 
   async createConfiguration(insertConfiguration: InsertConfiguration): Promise<Configuration> {
     const id = this.currentConfigurationId++;
-    const configuration: Configuration = { ...insertConfiguration, id };
+    const configuration: Configuration = { ...insertConfiguration, id, description: insertConfiguration.description || null };
     this.configurations.set(id, configuration);
     return configuration;
   }
@@ -170,7 +170,7 @@ export class MemStorage implements IStorage {
       return undefined;
     }
     
-    const updatedConfiguration: Configuration = { ...insertConfiguration, id };
+    const updatedConfiguration: Configuration = { ...insertConfiguration, id, description: insertConfiguration.description || null };
     this.configurations.set(id, updatedConfiguration);
     return updatedConfiguration;
   }

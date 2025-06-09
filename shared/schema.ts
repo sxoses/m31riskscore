@@ -12,7 +12,7 @@ export const configurations = pgTable("configurations", {
   id: serial("id").primaryKey(),
   name: text("name").notNull().unique(),
   weights: jsonb("weights").notNull(), // Store weight configuration as JSON
-  description: text("description"),
+  description: text("description").default(""),
 });
 
 export const insertCompanySchema = createInsertSchema(companies).omit({
