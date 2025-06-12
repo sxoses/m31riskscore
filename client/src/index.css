@@ -3,59 +3,59 @@
 @tailwind utilities;
 
 :root {
-  /* Primary colors - teal/blue theme */
-  --background: hsl(60, 5%, 98%);
-  --foreground: hsl(192, 48%, 15%);
-  --muted: hsl(60, 5%, 96%);
-  --muted-foreground: hsl(25, 5%, 45%);
+  /* M31 Capital black theme */
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 0%);
+  --muted: hsl(0, 0%, 96%);
+  --muted-foreground: hsl(0, 0%, 40%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(192, 48%, 15%);
+  --popover-foreground: hsl(0, 0%, 0%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(192, 48%, 15%);
-  --border: hsl(20, 6%, 90%);
-  --input: hsl(20, 6%, 90%);
-  --primary: hsl(192, 62%, 34%);
-  --primary-foreground: hsl(60, 5%, 98%);
-  --secondary: hsl(60, 5%, 96%);
-  --secondary-foreground: hsl(192, 48%, 15%);
-  --accent: hsl(60, 5%, 96%);
-  --accent-foreground: hsl(192, 48%, 15%);
+  --card-foreground: hsl(0, 0%, 0%);
+  --border: hsl(0, 0%, 90%);
+  --input: hsl(0, 0%, 90%);
+  --primary: hsl(0, 0%, 0%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 96%);
+  --secondary-foreground: hsl(0, 0%, 0%);
+  --accent: hsl(0, 0%, 96%);
+  --accent-foreground: hsl(0, 0%, 0%);
   --destructive: hsl(0, 85%, 42%);
-  --destructive-foreground: hsl(60, 9%, 98%);
-  --ring: hsl(192, 62%, 34%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(0, 0%, 0%);
   --radius: 0.75rem;
 
-  /* Custom scorecard colors */
-  --primary-50: hsl(192, 68%, 95%);
-  --primary-100: hsl(192, 68%, 87%);
-  --primary-500: hsl(192, 62%, 34%);
-  --primary-600: hsl(192, 62%, 30%);
-  --primary-700: hsl(192, 62%, 26%);
+  /* Custom scorecard colors - black theme */
+  --primary-50: hsl(0, 0%, 98%);
+  --primary-100: hsl(0, 0%, 95%);
+  --primary-500: hsl(0, 0%, 0%);
+  --primary-600: hsl(0, 0%, 0%);
+  --primary-700: hsl(0, 0%, 0%);
   
-  --secondary-50: hsl(39, 11%, 97%);
-  --secondary-100: hsl(36, 14%, 92%);
-  --secondary-500: hsl(36, 26%, 37%);
-  --secondary-600: hsl(36, 26%, 33%);
+  --secondary-50: hsl(0, 0%, 98%);
+  --secondary-100: hsl(0, 0%, 95%);
+  --secondary-500: hsl(0, 0%, 40%);
+  --secondary-600: hsl(0, 0%, 30%);
   
   --surface: hsl(0, 0%, 100%);
-  --background-main: hsl(60, 5%, 98%);
+  --background-main: hsl(0, 0%, 100%);
 
   /* Status colors */
-  --success: hsl(192, 62%, 34%);
-  --success-bg: hsl(192, 68%, 95%);
-  --success-border: hsl(192, 62%, 70%);
+  --success: hsl(0, 0%, 0%);
+  --success-bg: hsl(0, 0%, 95%);
+  --success-border: hsl(0, 0%, 70%);
   
-  --warning: hsl(20, 56%, 42%);
-  --warning-bg: hsl(20, 56%, 95%);
-  --warning-border: hsl(20, 56%, 70%);
+  --warning: hsl(45, 100%, 35%);
+  --warning-bg: hsl(45, 100%, 95%);
+  --warning-border: hsl(45, 100%, 70%);
   
-  --info: hsl(210, 7%, 42%);
-  --info-bg: hsl(210, 7%, 95%);
-  --info-border: hsl(210, 7%, 70%);
+  --info: hsl(210, 100%, 35%);
+  --info-bg: hsl(210, 100%, 95%);
+  --info-border: hsl(210, 100%, 70%);
   
-  --error: hsl(348, 79%, 42%);
-  --error-bg: hsl(348, 79%, 95%);
-  --error-border: hsl(348, 79%, 70%);
+  --error: hsl(0, 85%, 42%);
+  --error-bg: hsl(0, 85%, 95%);
+  --error-border: hsl(0, 85%, 70%);
 }
 
 .dark {

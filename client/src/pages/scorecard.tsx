@@ -10,8 +10,8 @@ import { calculateCategoryScore, calculateWeightedScore, getRecommendation } fro
 import type { CategoryScores } from "@shared/schema";
 
 export default function Scorecard() {
-  const [currentConfig, setCurrentConfig] = useState("Liquid Fund");
-  const [currentCompany, setCurrentCompany] = useState("TechCorp");
+  const [currentConfig, setCurrentConfig] = useState("Ventures");
+  const [currentCompany, setCurrentCompany] = useState("BTC");
   const [companyScores, setCompanyScores] = useState<Record<string, CategoryScores>>(
     JSON.parse(JSON.stringify(scorecardData.companies))
   );

@@ -32,20 +32,25 @@ export type Configuration = typeof configurations.$inferSelect;
 export interface CategoryScores {
   team: number[];
   technology: number[];
+  technical: number[];
   market: number[];
   blockchain: number[];
   business: number[];
   risk: number[];
+  xfactor: number[];
   [key: string]: number[]; // Index signature for dynamic access
 }
 
 export interface WeightConfiguration {
-  team: number;
-  technology: number;
-  market: number;
-  blockchain: number;
-  business: number;
-  risk: number;
+  team?: number;
+  technology?: number;
+  market?: number;
+  blockchain?: number;
+  business?: number;
+  risk?: number;
+  technical?: number;
+  xfactor?: number;
+  [key: string]: number | undefined;
 }
 
 export interface CategoryDefinition {
