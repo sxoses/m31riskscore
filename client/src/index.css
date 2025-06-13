@@ -25,7 +25,7 @@
   --ring: hsl(0, 0%, 0%);
   --radius: 0.75rem;
 
-  /* Custom scorecard colors - black theme */
+  /* Custom scorecard colors - M31 Capital black theme */
   --primary-50: hsl(0, 0%, 98%);
   --primary-100: hsl(0, 0%, 95%);
   --primary-500: hsl(0, 0%, 0%);
@@ -40,14 +40,14 @@
   --surface: hsl(0, 0%, 100%);
   --background-main: hsl(0, 0%, 100%);
 
-  /* Status colors */
+  /* Status colors for M31 branding */
   --success: hsl(0, 0%, 0%);
   --success-bg: hsl(0, 0%, 95%);
   --success-border: hsl(0, 0%, 70%);
   
-  --warning: hsl(45, 100%, 35%);
-  --warning-bg: hsl(45, 100%, 95%);
-  --warning-border: hsl(45, 100%, 70%);
+  --warning: hsl(30, 100%, 35%);
+  --warning-bg: hsl(30, 100%, 95%);
+  --warning-border: hsl(30, 100%, 70%);
   
   --info: hsl(210, 100%, 35%);
   --info-bg: hsl(210, 100%, 95%);

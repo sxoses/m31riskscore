@@ -10,8 +10,9 @@ import { calculateCategoryScore, calculateWeightedScore, getRecommendation } fro
 import type { CategoryScores } from "@shared/schema";
 
 export default function Scorecard() {
-  const [currentConfig, setCurrentConfig] = useState("Ventures");
-  const [currentCompany, setCurrentCompany] = useState("BTC");
+  const [currentConfig, setCurrentConfig] = useState("Web3");
+  const [currentCompany, setCurrentCompany] = useState("Current Company");
+  const [companyName, setCompanyName] = useState("Current Company");
   const [companyScores, setCompanyScores] = useState<Record<string, CategoryScores>>(
     JSON.parse(JSON.stringify(scorecardData.companies))
   );
@@ -26,11 +27,17 @@ export default function Scorecard() {
   };
 
   const handleCompanyChange = (companyName: string) => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setCurrentCompany(companyName);
-      setIsLoading(false);
-    }, 50);
+    if (companyName !== "Current Company") {
+      setIsLoading(true);
+      setTimeout(() => {
+        setCurrentCompany(companyName);
+        setIsLoading(false);
+      }, 50);
+    }
+  };
+
+  const handleCompanyNameChange = (name: string) => {
+    setCompanyName(name);
   };
 
   const handleScoreChange = (category: string, index: number, value: number) => {
@@ -48,11 +55,13 @@ export default function Scorecard() {
   const calculateTotalScore = (companyName: string, configName: string) => {
     const config = scorecardData.configurations[configName];
     const companyData = companyScores[companyName];
+    if (!companyData || !config) return 0;
+    
     let totalWeightedScore = 0;
 
     Object.keys(companyData).forEach(category => {
       const categoryScore = calculateCategoryScore(companyData[category as keyof CategoryScores]);
-      const weight = config[category as keyof typeof config];
+      const weight = config[category as keyof typeof config] || 0;
       const weightedScore = calculateWeightedScore(categoryScore, weight);
       totalWeightedScore += weightedScore;
     });
@@ -69,17 +78,15 @@ export default function Scorecard() {
         <Header
           currentConfig={currentConfig}
           currentCompany={currentCompany}
+          companyName={companyName}
           onConfigChange={handleConfigChange}
           onCompanyChange={handleCompanyChange}
+          onCompanyNameChange={handleCompanyNameChange}
           configurations={Object.keys(scorecardData.configurations)}
           companies={Object.keys(companyScores)}
         />
 
-        <WeightVisualization
-          currentConfig={currentConfig}
-          configuration={scorecardData.configurations[currentConfig]}
-          categories={scorecardData.categories}
-        />
+
 
         <ScorecardGrid
           currentCompany={currentCompany}

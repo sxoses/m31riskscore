@@ -81,7 +81,7 @@ export const scorecardData: ScorecardData = {
       xfactor: [5, 5, 5, 5]
     },
     SQD: {
-      team: [4, 4, 4, 4],
+      team: [4, 4, 4, 5],
       technology: [4, 4, 4, 4],
       technical: [4, 4, 4, 4],
       market: [4, 4, 4, 4],
@@ -95,7 +95,7 @@ export const scorecardData: ScorecardData = {
       technology: [5, 4, 5, 4],
       technical: [5, 4, 5, 4],
       market: [5, 4, 5, 4],
-      blockchain: [5, 4, 5, 4],
+      blockchain: [4, 4, 4, 4],
       business: [5, 4, 5, 4],
       risk: [5, 4, 5, 4],
       xfactor: [5, 4, 5, 4]
@@ -109,6 +109,16 @@ export const scorecardData: ScorecardData = {
       business: [4, 4, 4, 4],
       risk: [4, 4, 4, 4],
       xfactor: [4, 4, 4, 4]
+    },
+    "Current Company": {
+      team: [3, 3, 3, 3],
+      technology: [3, 3, 3, 3],
+      technical: [3, 3, 3, 3],
+      market: [3, 3, 3, 3],
+      blockchain: [3, 3, 3, 3],
+      business: [3, 3, 3, 3],
+      risk: [3, 3, 3, 3],
+      xfactor: [3, 3, 3, 3]
     }
   }
 };
