@@ -1,4 +1,5 @@
 import { getRecommendation } from "@/lib/scorecard-utils";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import type { CategoryScores } from "@shared/schema";
 
 interface ComparisonDashboardProps {
@@ -7,6 +8,8 @@ interface ComparisonDashboardProps {
   currentConfig: string;
   companyScores: Record<string, CategoryScores>;
   calculateTotalScore: (companyName: string, configName: string) => number;
+  selectedPortCo: string | null;
+  onPortCoSelect: (company: string) => void;
 }
 
 export function ComparisonDashboard({
@@ -14,7 +17,9 @@ export function ComparisonDashboard({
   currentCompany,
   currentConfig,
   companyScores,
-  calculateTotalScore
+  calculateTotalScore,
+  selectedPortCo,
+  onPortCoSelect
 }: ComparisonDashboardProps) {
   // Static scores as requested
   const staticScores = {
@@ -27,9 +32,28 @@ export function ComparisonDashboard({
   return (
     <section className="mb-8">
       <div className="bg-white rounded-xl shadow-sm border border-black p-6">
-        <h2 className="text-xl font-semibold text-black mb-6">
-          Portfolio Comparison
-        </h2>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+          <h2 className="text-xl font-semibold text-black">
+            Portfolio Comparison
+          </h2>
+          <div className="flex flex-col">
+            <label className="text-sm font-medium text-black mb-1">
+              PortCos
+            </label>
+            <Select value={selectedPortCo || ""} onValueChange={onPortCoSelect}>
+              <SelectTrigger className="min-w-48 bg-white border-black text-black">
+                <SelectValue placeholder="Select portfolio company" />
+              </SelectTrigger>
+              <SelectContent>
+                {companies.filter(company => company !== "Current Company").map((company) => (
+                  <SelectItem key={company} value={company}>
+                    {company}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
@@ -43,11 +67,14 @@ export function ComparisonDashboard({
               {companies.filter(company => company !== "Current Company").map((companyName) => {
                 const staticScore = staticScores[companyName as keyof typeof staticScores] || 0;
                 const recommendation = getRecommendation(staticScore);
+                const isSelected = companyName === selectedPortCo;
                 
                 return (
                   <tr 
                     key={companyName}
-                    className="border-b border-gray-200 hover:bg-gray-50"
+                    className={`border-b border-gray-200 hover:bg-gray-50 ${
+                      isSelected ? 'bg-yellow-100 ring-2 ring-yellow-400' : ''
+                    }`}
                   >
                     <td className="py-3 px-4 font-medium text-black">{companyName}</td>
                     <td className="py-3 px-4 text-lg font-semibold text-black">

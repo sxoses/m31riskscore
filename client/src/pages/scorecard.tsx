@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
 import { Header } from "@/components/scorecard/Header";
-import { WeightVisualization } from "@/components/scorecard/WeightVisualization";
 import { ScorecardGrid } from "@/components/scorecard/ScorecardGrid";
 import { ResultsSummary } from "@/components/scorecard/ResultsSummary";
 import { ComparisonDashboard } from "@/components/scorecard/ComparisonDashboard";
@@ -10,9 +10,14 @@ import { calculateCategoryScore, calculateWeightedScore, getRecommendation } fro
 import type { CategoryScores } from "@shared/schema";
 
 export default function Scorecard() {
+  const [location] = useLocation();
+  const urlParams = new URLSearchParams(location.split('?')[1] || '');
+  const companyFromUrl = urlParams.get('company') || 'Current Company';
+  
   const [currentConfig, setCurrentConfig] = useState("Web3");
   const [currentCompany, setCurrentCompany] = useState("Current Company");
-  const [companyName, setCompanyName] = useState("Current Company");
+  const [companyName, setCompanyName] = useState(companyFromUrl);
+  const [selectedPortCo, setSelectedPortCo] = useState<string | null>(null);
   const [companyScores, setCompanyScores] = useState<Record<string, CategoryScores>>(
     JSON.parse(JSON.stringify(scorecardData.companies))
   );
@@ -38,6 +43,10 @@ export default function Scorecard() {
 
   const handleCompanyNameChange = (name: string) => {
     setCompanyName(name);
+  };
+
+  const handlePortCoSelect = (company: string) => {
+    setSelectedPortCo(company);
   };
 
   const handleScoreChange = (category: string, index: number, value: number) => {
@@ -77,13 +86,9 @@ export default function Scorecard() {
       <div className="container mx-auto px-4 py-6 max-w-7xl">
         <Header
           currentConfig={currentConfig}
-          currentCompany={currentCompany}
           companyName={companyName}
           onConfigChange={handleConfigChange}
-          onCompanyChange={handleCompanyChange}
-          onCompanyNameChange={handleCompanyNameChange}
           configurations={Object.keys(scorecardData.configurations)}
-          companies={Object.keys(companyScores)}
         />
 
 
