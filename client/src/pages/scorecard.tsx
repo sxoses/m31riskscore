@@ -67,15 +67,20 @@ export default function Scorecard() {
     if (!companyData || !config) return 0;
     
     let totalWeightedScore = 0;
+    let totalWeight = 0;
 
-    Object.keys(companyData).forEach(category => {
-      const categoryScore = calculateCategoryScore(companyData[category as keyof CategoryScores]);
-      const weight = config[category as keyof typeof config] || 0;
-      const weightedScore = calculateWeightedScore(categoryScore, weight);
-      totalWeightedScore += weightedScore;
+    // Only calculate for categories that exist in the current configuration
+    Object.keys(config).forEach(category => {
+      const weight = config[category as keyof typeof config];
+      if (weight && companyData[category as keyof CategoryScores]) {
+        const categoryScore = calculateCategoryScore(companyData[category as keyof CategoryScores]);
+        const weightedScore = calculateWeightedScore(categoryScore, weight);
+        totalWeightedScore += weightedScore;
+        totalWeight += weight;
+      }
     });
 
-    return (totalWeightedScore / 5) * 100; // Convert to 0-100 scale
+    return totalWeight > 0 ? (totalWeightedScore / totalWeight) * 100 : 0;
   };
 
   const currentTotalScore = calculateTotalScore(currentCompany, currentConfig);
@@ -112,6 +117,8 @@ export default function Scorecard() {
           currentConfig={currentConfig}
           companyScores={companyScores}
           calculateTotalScore={calculateTotalScore}
+          selectedPortCo={selectedPortCo}
+          onPortCoSelect={handlePortCoSelect}
         />
 
         <DecisionThresholds />

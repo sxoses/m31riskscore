@@ -16,17 +16,22 @@ export function ScorecardGrid({
   categories,
   onScoreChange
 }: ScorecardGridProps) {
+  // Filter categories based on the configuration (investment type)
+  const relevantCategories = Object.entries(categories).filter(([categoryKey]) => {
+    return configuration[categoryKey as keyof WeightConfiguration] !== undefined;
+  });
+
   return (
     <main className="mb-8">
       <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
-        {Object.entries(categories).map(([categoryKey, categoryDef]) => (
+        {relevantCategories.map(([categoryKey, categoryDef]) => (
           <CategoryCard
             key={categoryKey}
             categoryKey={categoryKey}
             categoryName={categoryDef.name}
             subcategories={categoryDef.subcategories}
-            scores={companyScores[categoryKey as keyof CategoryScores]}
-            weight={configuration[categoryKey as keyof WeightConfiguration]}
+            scores={companyScores[categoryKey as keyof CategoryScores] || [0, 0, 0, 0]}
+            weight={configuration[categoryKey as keyof WeightConfiguration] || 0}
             onScoreChange={onScoreChange}
           />
         ))}
