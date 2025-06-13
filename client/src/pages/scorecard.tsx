@@ -90,7 +90,7 @@ export default function Scorecard() {
 
         <ScorecardGrid
           currentCompany={currentCompany}
-          companyScores={companyScores[currentCompany]}
+          companyScores={companyScores[currentCompany] || companyScores["Current Company"]}
           configuration={scorecardData.configurations[currentConfig]}
           categories={scorecardData.categories}
           onScoreChange={handleScoreChange}

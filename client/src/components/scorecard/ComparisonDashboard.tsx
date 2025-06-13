@@ -16,38 +16,49 @@ export function ComparisonDashboard({
   companyScores,
   calculateTotalScore
 }: ComparisonDashboardProps) {
+  // Static scores as requested
+  const staticScores = {
+    BTC: 95,
+    SQD: 85,
+    xAI: 90,
+    Bless: 81
+  };
+
   return (
     <section className="mb-8">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-6">
+      <div className="bg-white rounded-xl shadow-sm border border-black p-6">
+        <h2 className="text-xl font-semibold text-black mb-6">
           Portfolio Comparison
         </h2>
         <div className="overflow-x-auto">
-          <table className="comparison-table">
+          <table className="w-full border-collapse">
             <thead>
-              <tr>
-                <th>Company</th>
-                <th>Score</th>
-                <th>Recommendation</th>
+              <tr className="border-b-2 border-black">
+                <th className="text-left py-3 px-4 font-semibold text-black">Company</th>
+                <th className="text-left py-3 px-4 font-semibold text-black">Score</th>
+                <th className="text-left py-3 px-4 font-semibold text-black">Recommendation</th>
               </tr>
             </thead>
             <tbody>
-              {companies.map((companyName) => {
-                const totalScore = calculateTotalScore(companyName, currentConfig);
-                const recommendation = getRecommendation(totalScore);
-                const isCurrentCompany = companyName === currentCompany;
+              {companies.filter(company => company !== "Current Company").map((companyName) => {
+                const staticScore = staticScores[companyName as keyof typeof staticScores] || 0;
+                const recommendation = getRecommendation(staticScore);
                 
                 return (
                   <tr 
                     key={companyName}
-                    className={isCurrentCompany ? 'bg-primary-50 font-semibold' : ''}
+                    className="border-b border-gray-200 hover:bg-gray-50"
                   >
-                    <td className="font-medium">{companyName}</td>
-                    <td className="text-lg font-semibold text-primary-600">
-                      {totalScore.toFixed(1)}
+                    <td className="py-3 px-4 font-medium text-black">{companyName}</td>
+                    <td className="py-3 px-4 text-lg font-semibold text-black">
+                      {staticScore}
                     </td>
-                    <td>
-                      <span className={`status-badge ${recommendation.class}`}>
+                    <td className="py-3 px-4">
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                        recommendation.class === 'success' ? 'bg-green-100 text-green-800' :
+                        recommendation.class === 'warning' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-red-100 text-red-800'
+                      }`}>
                         {recommendation.text}
                       </span>
                     </td>

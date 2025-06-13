@@ -59,11 +59,11 @@ export function CategoryCard({
   };
 
   return (
-    <div className="category-card" data-category={categoryKey}>
+    <div className="category-card bg-white rounded-xl shadow-sm border border-black p-6" data-category={categoryKey}>
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-black">{categoryName}</h3>
         <span className="bg-gray-100 text-black px-3 py-1 rounded-full text-sm font-medium border border-black">
-          {weight}%
+          {weight || 0}%
         </span>
       </div>
       
@@ -87,13 +87,13 @@ export function CategoryCard({
         <div className="flex justify-between items-center">
           <span className="text-sm text-gray-600">Category Score:</span>
           <span className={`score-display text-black ${isUpdated ? 'score-updated' : ''}`}>
-            {categoryScore.toFixed(1)}
+            {isNaN(categoryScore) ? '0.0' : categoryScore.toFixed(1)}
           </span>
         </div>
         <div className="flex justify-between items-center mt-1">
           <span className="text-sm text-gray-600">Weighted:</span>
           <span className="text-sm font-medium text-black">
-            {weightedScore.toFixed(2)}
+            {isNaN(weightedScore) ? '0.00' : weightedScore.toFixed(2)}
           </span>
         </div>
       </div>

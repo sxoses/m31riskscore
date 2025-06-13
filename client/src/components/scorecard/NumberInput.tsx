@@ -94,7 +94,7 @@ export function NumberInput({
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       onBlur={handleBlur}
-      className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent text-center ${className}`}
+      className={`w-full px-3 py-2 border border-black rounded-lg focus:ring-2 focus:ring-black focus:border-transparent text-center bg-white text-black ${className}`}
       placeholder="0-5"
       min="0"
       max="5"
