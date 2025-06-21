@@ -1,124 +1,123 @@
-import type { ScorecardData } from "@shared/schema";
+import type { ScorecardData, CategoryScores } from "@shared/schema";
 
 export const scorecardData: ScorecardData = {
   configurations: {
     "Ventures": {
-      team: 35,
-      technology: 20,
-      market: 20,
-      blockchain: 5,
-      business: 15,
-      risk: 5
-    },
-    "DeFi": {
       team: 25,
       technology: 20,
-      market: 25,
-      blockchain: 10,
+      market: 20,
+      blockchain: 15,
       business: 15,
       risk: 5
     },
-    "Web3": {
-      technical: 20,
-      team: 20,
-      business: 15,
-      market: 15,
-      risk: 10,
-      xfactor: 20
+    "Liquid": {
+      team: 15,
+      technology: 15,
+      market: 20,
+      blockchain: 15,
+      business: 20,
+      risk: 15
     },
     "PLF": {
-      team: 30,
-      technology: 15,
-      market: 25,
-      blockchain: 10,
-      business: 15,
-      risk: 5
+      terms: 50,
+      risk_factors: 50,
     }
   },
   categories: {
     team: {
-      name: "Team & Vision Alignment",
-      subcategories: ["Core Team", "Vision and values", "Leadership Quality", "Team Cohesion"]
-    },
-    technology: {
-      name: "Technology",
-      subcategories: ["Innovation", "Scalability", "Security", "Technical Feasibility"]
-    },
-    technical: {
-      name: "Technical Foundation",
-      subcategories: ["Security", "Technology assessment", "Development activity", "Architecture"]
-    },
-    market: {
-      name: "Market & Adoption",
-      subcategories: ["Market opportunity", "Traction", "User Growth", "Customer Fit"]
+      name: "Team",
+      subcategories: ["Team Experience", "Track Record", "Technical Expertise", "Team Cohesion", "Motivation & Grit"]
     },
     blockchain: {
       name: "Blockchain Factors",
       subcategories: ["Decentralization Value", "Tokenomics", "Network Effects", "Regulatory Compliance"]
     },
     business: {
-      name: "Business Model/Tokenomics & Economics",
-      subcategories: ["Token utility", "Supply dynamics", "Sustainability", "Revenue Model"]
+      name: "Business Model & Traction",
+      subcategories: ["Revenue Model", "Traction", "Go-to-Market Strategy", "Unit Economics", "Channel partners / distribution"]
+    },
+    technology: {
+      name: "Technology",
+      subcategories: ["Innovation", "Scalability", "Security", "Technical Feasibility", "Differentiation", "Moat", "PMF", "Roadmap/feasibility"]
+    },
+    market: {
+      name: "Market Opportunity",
+      subcategories: ["Market Size", "Market Growth", "Competitive Landscape", "Customer Fit", "Web3 competition", "Web2 competition (disruptability)"]
     },
     risk: {
-      name: "Risk & Exit",
-      subcategories: ["Regulatory", "Technical", "Exit Potential", "Market Risk"]
+      name: "Risk & Exit Potential",
+      subcategories: ["Execution Risk", "Regulatory Risk", "Exit Potential", "Macro Risk", "Low liquidity", "Potential asset class conflict of interest"]
     },
-    xfactor: {
-      name: "X Factor",
-      subcategories: ["Quick email/message responder", "Open/transparent with metrics", "Open/transparent with failures", "On Adderall"]
+    terms: {
+      name: "Terms",
+      subcategories: ["Duration", "Allocation", "Underlying Yield"]
+    },
+    risk_factors: {
+      name: "Risk Factors",
+      subcategories: ["Peg Risk", "Idiosyncratic Risk", "Centralization Risk", "SC Risk"]
     }
   },
   companies: {
     BTC: {
-      team: [5, 5, 5, 5],
-      technology: [5, 5, 5, 5],
-      technical: [5, 5, 5, 5],
-      market: [5, 5, 5, 5],
+      team: [5, 5, 5, 5, 5],
+      technology: [5, 5, 5, 5, 5, 5, 5, 5],
+      market: [5, 5, 5, 5, 5, 5],
       blockchain: [5, 5, 5, 5],
-      business: [5, 5, 5, 5],
-      risk: [5, 5, 5, 5],
-      xfactor: [5, 5, 5, 5]
+      business: [5, 5, 5, 5, 5],
+      risk: [5, 5, 5, 5, 5, 5],
+      terms: [5, 5, 5],
+      risk_factors: [5, 5, 5, 5]
     },
     SQD: {
-      team: [4, 4, 4, 5],
-      technology: [4, 4, 4, 4],
-      technical: [4, 4, 4, 4],
-      market: [4, 4, 4, 4],
+      team: [4, 4, 4, 4, 4],
+      technology: [4, 4, 4, 4, 4, 4, 4, 4],
+      market: [4, 4, 4, 4, 4, 4],
       blockchain: [4, 4, 4, 4],
-      business: [4, 4, 4, 4],
-      risk: [4, 4, 4, 4],
-      xfactor: [4, 4, 4, 4]
+      business: [4, 4, 4, 4, 4],
+      risk: [4, 4, 4, 4, 4, 4],
+      terms: [4, 4, 4],
+      risk_factors: [4, 4, 4, 4]
     },
     xAI: {
-      team: [5, 4, 5, 4],
-      technology: [5, 4, 5, 4],
-      technical: [5, 4, 5, 4],
-      market: [5, 4, 5, 4],
+      team: [5, 4, 5, 4, 5],
+      technology: [5, 4, 5, 4, 5, 4, 5, 4],
+      market: [5, 4, 5, 4, 5, 4],
       blockchain: [4, 4, 4, 4],
-      business: [5, 4, 5, 4],
-      risk: [5, 4, 5, 4],
-      xfactor: [5, 4, 5, 4]
+      business: [5, 4, 5, 4, 5],
+      risk: [5, 4, 5, 4, 5, 4],
+      terms: [5, 4, 5],
+      risk_factors: [5, 4, 5, 4]
     },
     Bless: {
-      team: [4, 4, 4, 4],
-      technology: [4, 4, 4, 4],
-      technical: [4, 4, 4, 4],
-      market: [4, 4, 4, 4],
+      team: [4, 4, 4, 4, 4],
+      technology: [4, 4, 4, 4, 4, 4, 4, 4],
+      market: [4, 4, 4, 4, 4, 4],
       blockchain: [4, 4, 4, 4],
-      business: [4, 4, 4, 4],
-      risk: [4, 4, 4, 4],
-      xfactor: [4, 4, 4, 4]
+      business: [4, 4, 4, 4, 4],
+      risk: [4, 4, 4, 4, 4, 4],
+      terms: [4, 4, 4],
+      risk_factors: [4, 4, 4, 4]
     },
     "Current Company": {
-      team: [3, 3, 3, 3],
-      technology: [3, 3, 3, 3],
-      technical: [3, 3, 3, 3],
-      market: [3, 3, 3, 3],
+      team: [3, 3, 3, 3, 3],
+      technology: [3, 3, 3, 3, 3, 3, 3, 3],
+      market: [3, 3, 3, 3, 3, 3],
       blockchain: [3, 3, 3, 3],
-      business: [3, 3, 3, 3],
-      risk: [3, 3, 3, 3],
-      xfactor: [3, 3, 3, 3]
+      business: [3, 3, 3, 3, 3],
+      risk: [3, 3, 3, 3, 3, 3],
+      terms: [3, 3, 3],
+      risk_factors: [3, 3, 3, 3]
     }
   }
+};
+
+export const createBlankScores = (): CategoryScores => {
+  const blankScores: Partial<CategoryScores> = {};
+  for (const categoryKey in scorecardData.categories) {
+    if (Object.prototype.hasOwnProperty.call(scorecardData.categories, categoryKey)) {
+      const category = scorecardData.categories[categoryKey as keyof typeof scorecardData.categories];
+      blankScores[categoryKey as keyof CategoryScores] = Array(category.subcategories.length).fill(undefined);
+    }
+  }
+  return blankScores as CategoryScores;
 };

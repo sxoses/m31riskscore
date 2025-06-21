@@ -29,37 +29,27 @@ export type InsertConfiguration = z.infer<typeof insertConfigurationSchema>;
 export type Configuration = typeof configurations.$inferSelect;
 
 // Type definitions for scorecard data structures
-export interface CategoryScores {
-  team: number[];
-  technology: number[];
-  technical: number[];
-  market: number[];
-  blockchain: number[];
-  business: number[];
-  risk: number[];
-  xfactor: number[];
-  [key: string]: number[]; // Index signature for dynamic access
-}
+export type CategoryScores = Record<string, (number | undefined)[]>;
 
-export interface WeightConfiguration {
+export type WeightConfiguration = {
   team?: number;
   technology?: number;
   market?: number;
   blockchain?: number;
   business?: number;
   risk?: number;
-  technical?: number;
-  xfactor?: number;
+  terms?: number;
+  risk_factors?: number;
   [key: string]: number | undefined;
-}
+};
 
 export interface CategoryDefinition {
   name: string;
   subcategories: string[];
 }
 
-export interface ScorecardData {
+export type ScorecardData = {
   configurations: Record<string, WeightConfiguration>;
   categories: Record<string, CategoryDefinition>;
   companies: Record<string, CategoryScores>;
-}
+};

@@ -1,26 +1,23 @@
 // Calculate category score (average of subcategory scores)
-export function calculateCategoryScore(categoryScores: number[]): number {
-  if (!categoryScores || categoryScores.length === 0) return 0;
-  const sum = categoryScores.reduce((acc, score) => acc + score, 0);
-  return sum / categoryScores.length;
+export function calculateCategoryScore(scores: (number | undefined)[]): number {
+  const validScores = scores.filter(score => typeof score === 'number');
+  if (validScores.length === 0) return 0;
+  
+  const sum = validScores.reduce((acc, score) => acc + (score || 0), 0);
+  return (sum / (scores.length * 5)) * 100; // Normalize to a 0-100 scale
 }
 
 // Calculate weighted score for a category
-export function calculateWeightedScore(categoryScore: number, weight: number): number {
-  return (categoryScore * weight) / 100;
+export function calculateWeightedScore(categoryScore: number, weight: number) {
+  return categoryScore * weight;
 }
 
 // Get recommendation based on total score
-export function getRecommendation(totalScore: number): { text: string; class: string } {
-  if (totalScore >= 80) {
-    return { text: "Strong Buy", class: "status-success" };
-  } else if (totalScore >= 60) {
-    return { text: "Consider Investment", class: "status-warning" };
-  } else if (totalScore >= 40) {
-    return { text: "Hold", class: "status-info" };
-  } else {
-    return { text: "Pass", class: "status-error" };
-  }
+export function getRecommendation(score: number): string {
+  if (isNaN(score) || score < 40) return "Pass";
+  if (score < 60) return "Hold";
+  if (score < 80) return "Consider";
+  return "Strong Buy";
 }
 
 // Validate score value
